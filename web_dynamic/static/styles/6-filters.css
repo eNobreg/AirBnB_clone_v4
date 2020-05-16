@@ -22,7 +22,7 @@ button:hover {
     opacity: 0.9;
 }
 .filters div {
-    display: inline-grid;
+    display: inline-block;
 }
 .filters h2 {
     margin-left: 15%;
@@ -40,13 +40,18 @@ button:hover {
     margin-top: 0;
     font-weight: 400;
     font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .locations {
+    display: inline-block;
     height: 100%;
     width: 25%;
     border-right: 1px solid #DDDDDD;
 }
 .amenities {
+    display: inline-block;
     height: 100%;
     width: 25%;
 }
@@ -89,6 +94,10 @@ button:hover {
 .popover ul li{
     padding: 4px;
     padding-left: 10px;
+}
+
+.popover ul li input {
+    margin-right: 10px
 }
 
 .popover ul h2{
