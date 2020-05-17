@@ -1,4 +1,5 @@
 const activeAmenities = {};
+const entryNames = [];
 $(document).ready(function () {
   // Check for a change in the input
   $('input[type="checkbox"]').change(function () {
@@ -44,6 +45,7 @@ $(document).ready(function () {
       dataType: 'json',
       success: function (data) {
         let entry;
+        let pageContent = '';
         for (entry of data) {
           // Ternary operators to insert correct plural
           const bathroom = (entry.number_bathrooms > 1) ? ' Bathrooms</div>' : ' Bathroom</div>';
@@ -62,8 +64,11 @@ $(document).ready(function () {
                          '<div class="number_bathrooms">' + entry.number_bathrooms + bathroom +
                          '</div>' +
                          '<div class="description">' + entry.description + '</div>' + '</article>';
-            // Append the HTML to the correct section
-          $('section.places').append(html);
+
+          pageContent += html;
+          console.log(pageContent)
+        // Append the HTML to the correct section
+        $('section.places').html(pageContent);
         }
       }
     });
